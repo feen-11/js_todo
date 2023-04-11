@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TodoApp</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Todoリスト</h1>
+  <div class="todo-input-area">
+    <input type="text" placeholder="Todoを入力">
+    <button type="submit">保存</button>
+  </div>
+  <div class="todo-area">
+    <ul class="todo-items">
+      <li class="todo-item">掃除</li>
+    </ul>
+  </div>
+  <!-- index.jsをエントリーポイントとして各モジュールを読み込むことで、scriptタグを一つに収めることできる。これによってモジュールスコープが一つで済むため、各モジュールでの連携が可能になる。 -->
+  <script type="module" src="index.js">
+  </script>
+</body>
+</html>
