@@ -8,18 +8,27 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Todoリスト</h1>
-  <div class="todo-input-area">
-    <input type="text" placeholder="Todoを入力">
-    <button type="submit">保存</button>
-  </div>
-  <div class="todo-area">
-    <ul class="todo-items">
-      <li class="todo-item">掃除</li>
-    </ul>
-  </div>
-  <!-- index.jsをエントリーポイントとして各モジュールを読み込むことで、scriptタグを一つに収めることできる。これによってモジュールスコープが一つで済むため、各モジュールでの連携が可能になる。 -->
-  <script type="module" src="index.js">
-  </script>
-</body>
+  <body>
+    <div class="todoapp">
+      <form id="js-form">
+        <input
+          id="js-form-input"
+          class="new-todo"
+          type="text"
+          placeholder="やることを入力"
+          autocomplete="off"
+        />
+      </form>
+      <!-- TodoアプリのメインとなるTodoリスト -->
+      <div id="js-todo-list" class="todo-list">
+        <!-- 動的に更新されるTodoリスト -->
+      </div>
+      <footer class="footer">
+        <!-- Todoアイテム数の表示 -->
+        <span id="js-todo-count">Todoアイテム数: 0</span>
+      </footer>
+    </div>
+    <!-- index.jsをエントリーポイントとして各モジュールを読み込むことで、scriptタグを一つに収めることできる。これによってモジュールスコープが一つで済むため、各モジュールでの連携が可能になる。 -->
+    <script src="./index.js" type="module"></script>
+  </body>
 </html>
