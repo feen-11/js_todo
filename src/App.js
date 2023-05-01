@@ -12,6 +12,10 @@ export class App {
      * @param {string} title
      */
     handleAdd(title) {
+        //フォームが空文字だった場合はsubmitしても処理を行わない
+        if(title == ''){
+            return
+        }
         this.#todoListModel.addTodo(new TodoItemModel({ title, completed: false }));
     }
 
