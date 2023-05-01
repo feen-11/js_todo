@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TodoApp</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Todo App</title>
+    <link href="./styles.css" rel="stylesheet" />
+  </head>
   <body>
     <div class="todoapp">
       <form id="js-form">
@@ -15,20 +12,15 @@
           id="js-form-input"
           class="new-todo"
           type="text"
-          placeholder="やることを入力"
+          placeholder="What need to be done?"
           autocomplete="off"
         />
       </form>
-      <!-- TodoアプリのメインとなるTodoリスト -->
-      <div id="js-todo-list" class="todo-list">
-        <!-- 動的に更新されるTodoリスト -->
-      </div>
+      <div id="js-todo-list" class="todo-list"><!-- Todoリストの表示 --></div>
       <footer class="footer">
-        <!-- Todoアイテム数の表示 -->
         <span id="js-todo-count">Todoアイテム数: 0</span>
       </footer>
     </div>
-    <!-- index.jsをエントリーポイントとして各モジュールを読み込むことで、scriptタグを一つに収めることできる。これによってモジュールスコープが一つで済むため、各モジュールでの連携が可能になる。 -->
     <script src="./index.js" type="module"></script>
   </body>
 </html>

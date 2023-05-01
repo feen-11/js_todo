@@ -35,6 +35,14 @@ export class TodoListModel extends EventEmitter {
     }
 
     /**
+     * `onChange`で登録したリスナー関数を解除する
+     * @param {Function} listener
+     */
+    offChange(listener) {
+        this.removeEventListener("change", listener);
+    }
+
+    /**
      * 状態が変更されたときに呼ぶ。登録済みのリスナー関数を呼び出す
      */
     emitChange() {
@@ -47,6 +55,31 @@ export class TodoListModel extends EventEmitter {
      */
     addTodo(todoItem) {
         this.#items.push(todoItem);
+        this.emitChange();
+    }
+
+    /**
+     * 指定したidのTodoItemのcompletedを更新する
+     * @param {{ id:number, completed: boolean }}
+     */
+    updateTodo({ id, completed }) {
+        const todoItem = this.#items.find(todo => todo.id === id);
+        if (!todoItem) {
+            return;
+        }
+        todoItem.completed = completed;
+        this.emitChange();
+    }
+
+    /**
+     * 指定したidのTodoItemを削除する
+     * @param {{ id: number }}
+     */
+    deleteTodo({ id }) {
+        // `id`に一致しないTodoItemだけを残すことで、`id`に一致するTodoItemを削除する
+        this.#items = this.#items.filter(todo => {
+            return todo.id !== id;
+        });
         this.emitChange();
     }
 }

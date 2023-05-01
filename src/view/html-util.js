@@ -7,10 +7,6 @@ export function escapeSpecialChars(str) {
       .replace(/'/g, "&#039;");
 }
 
-/**
-* HTML文字列からHTML要素を作成して返す
-* @param {string} html 
-*/
 export function htmlToElement(html) {
   const template = document.createElement("template");
   template.innerHTML = html;
@@ -21,7 +17,6 @@ export function htmlToElement(html) {
 * HTML文字列からDOM Nodeを作成して返すタグ関数
 * @return {Element}
 */
-//stringには変数以外の固定文字列が配列として順番に格納、valuesには変数の中身が順番に格納
 export function element(strings, ...values) {
   const htmlString = strings.reduce((result, str, i) => {
       const value = values[i - 1];
