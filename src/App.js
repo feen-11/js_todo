@@ -32,7 +32,14 @@ export class App {
      * @param {{ id: number }}
      */
     handleDelete({ id }) {
-        this.#todoListModel.deleteTodo({ id });
+        //確認画面を出し、OKなら削除、NOなら削除をキャンセルする
+        const confirm = window.confirm('本当に削除してもよろしいですか？')
+        if(confirm){
+            this.#todoListModel.deleteTodo({ id });
+        }
+        else{
+            return
+        }
     }
 
     mount() {
